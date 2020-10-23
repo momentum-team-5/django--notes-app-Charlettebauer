@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Things I Need</h1>
+
+<div class="note-container">
+    
+    {% for note in notes %}
+        <div class='note-container'>
+            <h4>{{ note.title }}</h4>
+            <pre class='note-body'>{{ note.body }}</pre>
+            <p>
+                <a href="{% url 'notes_details' pk=poem.pk %}">More information</a>
+                {% if request.user.is_authenticated %}
+                {% endif %}
+            </p>
+        </div>
+
+    {% endfor %}
+
+</div>
+{% endblock %}
